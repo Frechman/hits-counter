@@ -1,4 +1,4 @@
-### hits counter
+## hits counter
 
 ### Для запуска необходимо иметь:
 * Docker
