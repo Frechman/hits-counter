@@ -12,8 +12,10 @@ services:
     networks:
       - app_net
     links:
+      - redis
       - db_postgres
     depends_on:
+      - redis
       - db_postgres
 
   db_postgres:
@@ -26,6 +28,19 @@ services:
       - 5432
     ports:
       - 5432:5432
+    networks:
+      - app_net
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    hostname: redis
+    volumes:
+      - ./docker/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    expose:
+      - 6379
+    ports:
+      - 6379:6379
     networks:
       - app_net
 
