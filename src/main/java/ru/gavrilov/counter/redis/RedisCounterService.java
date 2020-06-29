@@ -31,7 +31,6 @@ public class RedisCounterService implements CounterService {
     @PostConstruct
     public void init() {
         valueOperations = redisTemplate.opsForValue();
-        valueOperations.setIfAbsent(KEY_COUNTER, INIT_COUNTER_VALUE);
     }
 
     @Override

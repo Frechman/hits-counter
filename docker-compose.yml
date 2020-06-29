@@ -14,6 +14,12 @@ services:
     links:
       - redis
       - db_postgres
+    environment:
+      - REDIS_HOST=host.docker.internal
+      - REDIS_PORT=6379
+      - POSTGRES_HOST=host.docker.internal
+      - POSTGRES_PORT=5432
+
     depends_on:
       - redis
       - db_postgres
