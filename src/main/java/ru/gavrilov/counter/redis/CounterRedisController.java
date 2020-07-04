@@ -17,7 +17,7 @@ public class CounterRedisController {
     private final CounterService counterService;
 
     @Autowired
-    public CounterRedisController(RedisCounterService counterService) {
+    public CounterRedisController(@Qualifier("redis") CounterService counterService) {
         this.counterService = counterService;
     }
 
